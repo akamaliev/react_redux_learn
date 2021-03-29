@@ -1,38 +1,103 @@
-.App {
-  text-align: center;
+* {
+  box-sizing: border-box;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
+body {
   min-height: 100vh;
+}
+
+#root {
+  min-height: 100vh;
+}
+
+.App{
+  display: flex;
+  min-height: 100vh;
+}
+
+
+
+
+/* SIDEBAR--------------------------------------------------------------------------------------- */
+.sidebar {
+  min-height: 100vh;
+  flex: 0 0 45px;
+}
+
+.sidebar_wrapper{
+  height: 100vh;
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  position: fixed;
+  background-color: rgb(45, 49, 61);
 }
 
-.App-link {
-  color: #61dafb;
+.logo {
+  padding: 14px;
+  margin-bottom: 50px;
+  flex: 0 0 50px;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.mnu {
+    flex: 1 0;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    margin: 0;
+}
+
+.mnu .mnu_item {
+  color: rgb(121 121 121);
+  border-left: 1px solid transparent;
+  border-right: 1px solid transparent;
+  padding: 12px 0;
+  position: relative;
+}
+
+.mnu .mnu_item:hover {
+  background: rgb(55, 60, 75);
+  cursor: pointer;
+  color: #fff;
+}
+
+.mnu_item.active {
+  color: #fff;
+  border-left: 1px solid #fff;
+}
+
+
+
+.uk-badge_custom {
+    position: absolute;
+    right: 5px;
+    bottom: 3px;
+    height: 18px;
+    padding: 0 3px;
+    font-size: 0.7rem;
+    z-index: 3;
+    background: #e91e63;
+}
+/* SIDEBAR  END-----------------------------------------------------------------------------------*/
+
+
+
+
+
+
+
+
+
+/* PAGE -----------------------------------------------------------------------------------*/
+
+.page {
+  min-height: 100vh;
+  flex: 1;
+  padding: 20px;
+}
+
+/* PAGE END-----------------------------------------------------------------------------------*/
+
+
+.chat {
+  display: flex;
 }
