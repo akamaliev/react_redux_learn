@@ -26,17 +26,22 @@ let initialState = {
 export const serversPageReducer = (state = initialState, action) => {
     switch (action.type) {
 
-        case ADD_SERVER:
-            state.srvs.push({
+        case ADD_SERVER:{
+            let stateCopy = {...state};
+            stateCopy.srvs = [...state.srvs];
+            stateCopy.srvs.push({
                 id: 7,
-                srvName: state.srvName
+                srvName: stateCopy.srvName
             });
-            state.srvName = '';
-            return state;
+            stateCopy.srvName = '';
+            return stateCopy;
+        }
 
-        case INPUT_HANDLER:
-            state.srvName = action.txt;
-            return state;
+        case INPUT_HANDLER:{
+            let stateCopy = {...state};
+            stateCopy.srvName = action.txt;
+            return stateCopy;
+        }
 
         default:
             return state;

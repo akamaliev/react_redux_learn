@@ -1,5 +1,4 @@
 import React from 'react';
-import { addServerActionCreator, serverNameInputHandlerActionCreator } from '../../redux/servers-reducer';
 
 export default function Servers(props) {
 
@@ -13,7 +12,7 @@ export default function Servers(props) {
         props.inputChangeHandler(txt)
     };
 
-    let srvs = props.srvs.map((srv, index) => {
+    let srvs = props.serversPage.srvs.map((srv, index) => {
         return (
             <li key={index}>{srv.srvName + ", " + srv.srvIp}</li>
         )
@@ -25,7 +24,7 @@ export default function Servers(props) {
             <ul>
                 {srvs}
             </ul>
-            <input ref={inputText} type="text" value={props.srvName} onChange={inputChangeHandler}/>
+            <input ref={inputText} type="text" value={props.serversPage.srvName} onChange={inputChangeHandler}/>
             <button onClick={addSrv}>Добавить сервер</button>
         </div>
     )

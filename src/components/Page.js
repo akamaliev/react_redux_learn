@@ -1,6 +1,5 @@
 import React from 'react'
 import Index from './Index'
-import Servers from './Servers/Servers'
 import {
   Switch,
   Route
@@ -11,13 +10,12 @@ import NoMatch from './NoMatch';
 import ServerInfo from './ServerInfo';
 import BadCams from './BadCams';
 import {ChatContainer} from './Chat/ChatContainer';
+import { ServersContainer } from './Servers/ServersContainer';
 
 export default function Page(props) {
 
-    let srvs = props.state.serversPage.srvs;
     let badCams = props.state.badCamsPage.badCams;
     let camsList = props.state.camsListPage.camsList;
-
 
     return (
         <div className="page">
@@ -26,7 +24,7 @@ export default function Page(props) {
                     <Index />
                 </Route>            
                 <Route exact path="/servers">
-                    <Servers srvs={srvs} srvName={props.state.serversPage.srvName} dispatch={props.dispatch}/>
+                    <ServersContainer store={props.store}/>
                 </Route>
                 <Route exact path="/servers/:id">
                     <ServerInfo />

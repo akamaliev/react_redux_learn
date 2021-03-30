@@ -2,7 +2,6 @@ import React from 'react';
 
 export default function Chat(props) {
 
-    debugger;
 
     let updatedInputTxt = props.chat.inputMsg;
 
