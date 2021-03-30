@@ -41,23 +41,24 @@ export const chatPageReducers = (state = initialState, action) => {
     switch (action.type) {
 
         case UPDATE_INPUT_TEXT:{
-            let stateCopy = {...state};
-            stateCopy.inputMsg = action.msg;
-            return stateCopy;
+            return {
+                ...state,
+                inputMsg: action.msg
+            }
         }
 
         case SEND_MSG:{
-
-            let stateCopy = {...state};
-            stateCopy.messages = [...state.messages]
-                
-            stateCopy.messages.push({
-                id: 99,
-                msg: stateCopy.inputMsg
-            });
-
-            stateCopy.inputMsg = '';
-            return stateCopy;
+            return {
+                ...state,
+                messages: [
+                    ...state.messages,
+                    {
+                        id: 99,
+                        msg: state.inputMsg
+                    }
+                ],
+                inputMsg: ''
+            }
         }
     
         default:
