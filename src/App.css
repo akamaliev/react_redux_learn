@@ -101,3 +101,15 @@ body {
 .chat {
   display: flex;
 }
+
+
+
+/* USERS PAGE */
+.user {
+  display: flex;
+  align-content: center;
+}
+
+.user p {
+  margin: 10px 10px;
+}

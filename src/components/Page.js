@@ -11,6 +11,7 @@ import ServerInfo from './ServerInfo';
 import BadCams from './BadCams';
 import {ChatContainer} from './Chat/ChatContainer';
 import { ServersContainer } from './Servers/ServersContainer';
+import { UsersContainer } from './Users/UsersContainer';
 
 export default function Page(props) {
 
@@ -40,6 +41,9 @@ export default function Page(props) {
                 </Route>
                 <Route path="/chat">
                     <ChatContainer store={props.store}/>
+                </Route>
+                <Route path="/users">
+                    <UsersContainer store={props.store}/>
                 </Route>
                 <Route>
                     <NoMatch />
