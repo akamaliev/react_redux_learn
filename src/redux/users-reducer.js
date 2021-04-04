@@ -1,6 +1,7 @@
 const FOLLOW = 'FOLLOW';
 const UNFOLLOW = 'UNFOLLOW';
 const SET_USERS = 'SET_USERS';
+const SET_CURRENT_PAGE = 'SET_CURRENT_PAGE';
 
 export const followActionCreator = (userId) => (
         {
@@ -23,7 +24,19 @@ export const setUsersActionCreator = (users) => (
         }
 );
 
-let initialState = { users: [] };
+export const setCurrentPageActionCreator = (currentPage) => (
+        {
+            type: SET_CURRENT_PAGE,
+            currentPage: currentPage
+        }
+);
+
+let initialState = { 
+    users: [],
+    pageSize: 10,
+    totalCount: 50,
+    currentPage: 3
+};
 
 
 export const usersPageReducer = (state = initialState, action) => {
@@ -35,7 +48,7 @@ export const usersPageReducer = (state = initialState, action) => {
                 users: state.users.map(u => {
                     if(u.id === action.id) return {
                         ...u,
-                        follow: true
+                        followed: true
                     };
                     return u;
                 })
@@ -49,7 +62,7 @@ export const usersPageReducer = (state = initialState, action) => {
                 users: state.users.map(u => {
                     if(u.id === action.id) return {
                         ...u,
-                        follow: false
+                        followed: false
                     };
                     return u;
                 })
@@ -60,7 +73,14 @@ export const usersPageReducer = (state = initialState, action) => {
         case SET_USERS:{
             return {
                 ...state,
-                users: [...state.users, ...action.users]
+                users: action.users
+            }
+        }
+
+        case SET_CURRENT_PAGE:{
+            return {
+                ...state,
+                currentPage: action.currentPage
             }
         }
 
